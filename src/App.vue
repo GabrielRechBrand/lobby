@@ -1,12 +1,13 @@
 <template>
-    <div>
-        <header class="header d-flex d-inline-block">
-            <h1 class="header-title">Lobby</h1>
-            <router-link to="/"><i class="header-shortcut i-gamepad" /></router-link>
-            <router-link to="/about"><i class="header-shortcut i-gamepad" /></router-link>
-            <router-link to="/contact"><i class="header-shortcut i-gamepad" /></router-link>
+    <div class="app">
+        <header class="header d-flex align-items-center">
+            <div class="header-links d-flex justify-content-center">
+                <h1 class="custom-title">Lobby</h1>
+                <router-link to="/"><i class="header-shortcut i-home"></i></router-link>
+                <router-link to="/about"><i class="header-shortcut i-list"></i></router-link>
+                <router-link to="/contact"><i class="header-shortcut i-contact"></i></router-link>
+            </div>
         </header>
-
         <div class="router-view">
             <router-view></router-view>
         </div>
@@ -48,11 +49,24 @@ export default {
     left: 0;
     width: 100%;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.header-title {
-    margin: 0;
+.header-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.custom-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+
 
 .gamepad-background {
     position: fixed;
@@ -62,7 +76,7 @@ export default {
     width: 75%;
     height: 75%;
     z-index: -1;
-    background-image: url('./assets/gamepad.svg');
+    background-image: url('./assets/icons/gamepad.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -177,6 +191,18 @@ export default {
 }
 
 .i-gamepad {
-    background-image: url('./assets/gamepad.svg');
+    background-image: url('./assets/icons/gamepad.svg');
+}
+
+.i-home {
+    background-image: url('./assets/icons/home.svg');
+}
+
+.i-list {
+    background-image: url('./assets/icons/list.svg');
+}
+
+.i-contact {
+    background-image: url('./assets/icons/email.svg');
 }
 </style>
