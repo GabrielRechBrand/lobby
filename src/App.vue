@@ -5,6 +5,7 @@
                 <h1 class="custom-title">Lobby</h1>
                 <router-link to="/"><i class="header-shortcut i-home"></i></router-link>
                 <router-link to="/about"><i class="header-shortcut i-list"></i></router-link>
+                <router-link to="/games"><i class="header-shortcut i-gamepad"></i></router-link>
                 <router-link to="/contact"><i class="header-shortcut i-contact"></i></router-link>
             </div>
         </header>

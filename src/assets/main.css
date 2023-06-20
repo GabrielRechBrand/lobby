@@ -35,5 +35,11 @@ a,
 }
 
 input {
-  border-radius: 0.125rem !important;
+  border-radius: 5px !important;
+}
+
+span {
+  animation: typingAnimation 2s steps(40, end);
+  animation-fill-mode: forwards;
+  opacity: 0.7;
 }

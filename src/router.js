@@ -14,6 +14,10 @@ export default createRouter({
         {
             path: '/about',
             component: () => import('./components/About.vue')
+        },
+        {
+            path: '/games',
+            component: () => import('./components/Games.vue')
         }
     ]
 });

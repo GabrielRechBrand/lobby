@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
 
 export default {
     name: 'Home',
@@ -44,21 +43,6 @@ export default {
 </script>
 
 <style scoped>
-.home {
-    padding: 4rem;
-}
-
-p.lead {
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-}
-
-span {
-    animation: typingAnimation 2s steps(40, end);
-    animation-fill-mode: forwards;
-}
-
 @keyframes typingAnimation {
     from {
         width: 0;

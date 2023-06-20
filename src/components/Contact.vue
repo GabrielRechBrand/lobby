@@ -2,11 +2,13 @@
     <div class="home">
         <div class="text-center" v-if="!success">
             <h1>Interested?</h1>
-            <p class="lead">Enter your email in the field below so we can notify you when the application becomes available.</p>
+            <p class="lead">
+                <span>{{ typedText }}</span>
+            </p>
             <form class="d-flex justify-content-center" @submit.prevent="sendMail">
-                <input required type="email" v-model="email" class="input-group" name="email">
-                <input type="hidden" name="_subject" value="New email submission">
-                <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                <input required type="email" v-model="email" class="input-group" name="email" style="width: 300px" />
+                <input type="hidden" name="_subject" value="New email submission" />
+                <button type="submit" class="btn btn-outline-primary" style="margin-left: 10px">Submit</button>
             </form>
         </div>
         <div class="text-center" v-else>
@@ -22,10 +24,30 @@ export default {
         return {
             email: '',
             success: false,
+            welcomeMessage: "Enter your email in the field below so we can notify you when the application becomes available.",
+            typedText: '',
+            currentIndex: 0,
+            typingSpeed: 50, // Adjust the typing speed (in milliseconds) here
+            timerId: null,
         };
     },
 
+    mounted() {
+        this.startTypingAnimation();
+    },
+
     methods: {
+        startTypingAnimation() {
+            this.timerId = setInterval(() => {
+                if (this.currentIndex === this.welcomeMessage.length) {
+                    clearInterval(this.timerId);
+                    return;
+                }
+                this.typedText += this.welcomeMessage.charAt(this.currentIndex);
+                this.currentIndex++;
+            }, this.typingSpeed);
+        },
+
         sendMail() {
             if (this.email) {
                 const form = document.createElement('form');
@@ -47,5 +69,17 @@ export default {
 <style scoped>
 .home {
     padding: 4rem;
+}
+
+.btn-outline-primary {
+    color: #ffffff; /* Set the default text color */
+    border-color: rgba(231, 50, 246, 0.91); /* Set the default border color */
+    background-color: transparent; /* Set the default background color */
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Add transition for color and background-color */
+}
+
+.btn-outline-primary:hover {
+    color: #fff; /* Set the text color on hover */
+    background-color: rgb(66, 30, 121); /* Set the background color on hover */
 }
 </style>
